@@ -1,0 +1,13 @@
+#container{
+    display: flex;
+    width: 160px;
+    height: 160px;
+    flex-wrap: wrap;
+}
+
+.sketch-divs{
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+}
