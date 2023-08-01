@@ -1,13 +1,13 @@
 const container = document.querySelector("#container");
 
-for (let columns = 0; columns < 16; columns++) {
-  makeRow(16);
-}
+makeGrid(16);
 
-function makeRow(x) {
-  for (let rows = 0; rows < x; rows++) {
-    const row = document.createElement("div");
-    row.classList.add("sketch-divs");
-    container.appendChild(row);
+function makeGrid(x) {
+  for (let columns = 0; columns < x; columns++) {
+    for (let rows = 0; rows < x; rows++) {
+      const box = document.createElement("div");
+      box.classList.add("sketch-divs");
+      container.appendChild(box);
+    }
   }
 }
