@@ -1,4 +1,7 @@
 const container = document.querySelector("#container");
+const gridSizeButton = document.querySelector("#gridSizeButton");
+
+gridSizeButton.addEventListener("click", changeGridSize);
 
 makeGrid(16);
 
