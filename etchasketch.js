@@ -1,11 +1,23 @@
 const container = document.querySelector("#container");
 const dropdown = document.querySelector("#sizeDropdown");
+const boxes = document.querySelector(container.firstChild);
+const colourButton = document.querySelector("#colourfy");
+const shaderButton = document.querySelector("#shade");
 
-//makeGrid(100);
+makeGrid(10);
+
+colourButton.addEventListener("click", randomColour());
 
 dropdown.addEventListener("change", () => {
   container.innerHTML = "";
   makeGrid(dropdown.value);
+});
+
+colourButton.addEventListener("click", () => {
+  box.addEventListener("mouseenter"),
+    function (e) {
+      e.target.style.background = "";
+    };
 });
 
 function makeGrid(x) {
@@ -22,4 +34,39 @@ function makeGrid(x) {
       box.style.zIndex = 0;
     }
   }
+}
+
+function randomColour() {
+  boxes.addEventListener("mouseenter"),
+    () => {
+      for (let i = 0; i > 8; i++) {
+        switch (i) {
+          case 0:
+            e.target.style.background = "#0d2b45";
+            break;
+          case 1:
+            e.target.style.background = "#203c56";
+            break;
+          case 2:
+            e.target.style.background = "#544e68";
+            break;
+          case 3:
+            e.target.style.background = "#8d697a";
+            break;
+          case 4:
+            e.target.style.background = "#d08159";
+            break;
+          case 5:
+            e.target.style.background = "#ffaa5e";
+            break;
+          case 6:
+            e.target.style.background = "#ffd4a3";
+            break;
+          case 7:
+            e.target.style.background = "#ffecd6";
+            break;
+        }
+      }
+      console.log("entered");
+    };
 }
