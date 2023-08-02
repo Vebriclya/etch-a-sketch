@@ -6,8 +6,6 @@ const shaderButton = document.querySelector("#shade");
 
 makeGrid(10);
 
-colourButton.addEventListener("click", randomColour());
-
 dropdown.addEventListener("change", () => {
   container.innerHTML = "";
   makeGrid(dropdown.value);
