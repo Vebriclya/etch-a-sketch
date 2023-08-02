@@ -3,8 +3,9 @@ const dropdown = document.querySelector("#sizeDropdown");
 
 //makeGrid(100);
 
-dropdown.addEventListener("onchange", () => {
-  makeGrid(dropdown.id);
+dropdown.addEventListener("change", () => {
+  container.innerHTML = "";
+  makeGrid(dropdown.value);
 });
 
 function makeGrid(x) {
