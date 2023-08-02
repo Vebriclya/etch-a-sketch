@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400&display=swap');
+
 body{
+    font-family: 'Roboto', 'sans-serif';
     margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
 }
 
 #container{
@@ -16,5 +23,42 @@ body{
     box-sizing: border-box;   
 }
 
+#button-div{
+    flex-wrap: wrap;
+    width: 700px;
+    height: 80px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-evenly;
+    align-content: center;
+}
 
+button{
+    display: flex;
+    box-sizing: border-box;
+    background-color: #4a2480;
+    color: #ff8e80;
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #ff8e80;
+    padding: 2px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+#sizeDropdown{
+    display: flex;
+    box-sizing: border-box;
+    background-color: #4a2480;
+    color: #ff8e80;
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #ff8e80;
+    padding: 2px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
