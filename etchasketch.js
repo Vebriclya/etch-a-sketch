@@ -1,12 +1,11 @@
 const container = document.querySelector("#container");
-const gridSizeButton = document.querySelector("#gridSizeButton");
-
-gridSizeButton.addEventListener("click", function () {
-  let gridSize = prompt("What size would you like the grid?", "16");
-  makeGrid(gridSize);
-});
+const dropdown = document.querySelector("#sizeDropdown");
 
 //makeGrid(100);
+
+dropdown.addEventListener("onchange", () => {
+  makeGrid(dropdown.id);
+});
 
 function makeGrid(x) {
   container.style.gridTemplateColumns = `repeat(${x}, 1fr)`;

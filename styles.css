@@ -1,3 +1,7 @@
+body{
+    margin: 2rem;
+}
+
 #container{
     display: grid;
     width: 700px;
@@ -9,7 +13,8 @@
 
 .sketch-divs{
     border: 1px solid rgba(0, 0, 0, 0.050);
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
 }
+
+
 
