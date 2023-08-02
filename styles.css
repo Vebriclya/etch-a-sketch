@@ -1,14 +1,13 @@
 #container{
-    display: flex;
-    width: 480px;
-    height: 480px;
-    flex-wrap: wrap;
+    display: grid;
+    width: 700px;
+    height: 700px;
+    /*grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(50, 1fr);*/
 }
 
 .sketch-divs{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.050);
     box-sizing: border-box;
-    /*width: 30px;
-    height: 30px;*/
 }
 
