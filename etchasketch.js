@@ -1,9 +1,12 @@
 const container = document.querySelector("#container");
 const gridSizeButton = document.querySelector("#gridSizeButton");
 
-//gridSizeButton.addEventListener("click", changeGridSize);
+gridSizeButton.addEventListener("click", function () {
+  let gridSize = prompt("What size would you like the grid?", "16");
+  makeGrid(gridSize);
+});
 
-makeGrid(30);
+//makeGrid(100);
 
 function makeGrid(x) {
   container.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
@@ -16,6 +19,7 @@ function makeGrid(x) {
       box.addEventListener("mouseenter", function (e) {
         e.target.style.background = "pink";
       });
+      box.style.zIndex = 0;
     }
   }
 }
