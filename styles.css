@@ -48,6 +48,13 @@ button{
     justify-content: center;
 }
 
+button:hover{
+    cursor: grab;
+    background-color: #ff8e80;
+    border: 2px solid #4a2480;
+    color: #4a2480;
+}
+
 #sizeDropdown{
     display: flex;
     box-sizing: border-box;
@@ -66,4 +73,8 @@ button{
 #sizeDropdown:focus{
     outline: none;
     border: 2px solid #ff8e80;
+}
+
+#sizeDropdown:hover{
+    cursor: grab;
 }
