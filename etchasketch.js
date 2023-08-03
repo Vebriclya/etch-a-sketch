@@ -2,7 +2,19 @@ const container = document.querySelector("#container");
 const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
 const colourButton = document.querySelector("#colourfy");
+let colourButtonPressed = false;
 const shaderButton = document.querySelector("#shade");
+let currentColour = "pink";
+const colourArray = [
+  "#0d2b45",
+  "#203c56",
+  "#544e68",
+  "#8d697a",
+  "#d08159",
+  "#ffaa5e",
+  "#ffd4a3",
+  "#ffecd6",
+];
 
 makeGrid(10);
 
@@ -12,8 +24,19 @@ dropdown.addEventListener("change", () => {
 });
 
 colourButton.addEventListener("click", () => {
-  console.log("Pressed!");
-  randomColour();
+  if (colourButtonPressed === false) {
+    colourButtonPressed = true;
+  } else {
+    colourButtonPressed = false;
+  }
+  console.log(colourButtonPressed);
+
+  if (colourButtonPressed) {
+    boxes.forEach((box) => {
+      console.log("enteredBox");
+    });
+    //let currentColour = colourArray(Math.floor(Math.random() * 8));
+  }
 });
 
 function makeGrid(x) {
@@ -25,48 +48,51 @@ function makeGrid(x) {
       box.classList.add("sketch-divs");
       container.appendChild(box);
       box.addEventListener("mouseenter", function (e) {
-        e.target.style.background = "pink";
+        if (colourButtonPressed) {
+          currentColour = colourArray[Math.floor(Math.random() * 8)];
+          e.target.style.background = currentColour;
+          console.log(currentColour);
+        } else {
+          e.target.style.background = currentColour;
+          currentColour = e.target.style.background;
+          console.log(currentColour);
+        }
       });
       box.style.zIndex = 0;
     }
   }
 }
 
-function randomColour() {
-  boxes.forEach((box) => {
-    box.removeEventListener("mouseenter", colourArray);
-    box.addEventListener("mouseenter", applyRandomColor);
-  });
-}
-
-function colourArray(e) {
-  console.log("entered");
-  for (let i = 0; i < 8; i++) {
-    switch (i) {
+/*
+function colourPicker() {
+  let colour = "";
+  for(i = 0; i < 8; i++){
+    switch(i){
       case 0:
-        e.target.style.background = "#0d2b45";
+        colour = colourArray[0];
         break;
       case 1:
-        e.target.style.background = "#203c56";
+        colour = colourArray[1];
         break;
       case 2:
-        e.target.style.background = "#544e68";
+        colour = colourArray[2];
         break;
       case 3:
-        e.target.style.background = "#8d697a";
+        colour = colourArray[3];
         break;
       case 4:
-        e.target.style.background = "#d08159";
+        colour = colourArray[4];
         break;
       case 5:
-        e.target.style.background = "#ffaa5e";
+        colour = colourArray[5];
         break;
       case 6:
-        e.target.style.background = "#ffd4a3";
+        colour = colourArray[6];
         break;
       case 7:
-        e.target.style.background = "#ffecd6";
+        colour = colourArray[7];
         break;
     }
-  }
+    return colour;
 }
+*/
