@@ -10,7 +10,6 @@ let loopUp = true;
 const shaderButton = document.querySelector("#shade");
 let shaderButtonPressed = false;
 let currentColour = "black";
-let currentOpacity = 0.1;
 const colourArray = [
   "#171719",
   "#5b3b81",
@@ -73,7 +72,7 @@ gradientButton.addEventListener("click", () => {
     shaderButtonPressed = false;
   } else {
     gradientButtonPressed = false;
-    currentColour = black;
+    currentColour = "black";
   }
 });
 
@@ -128,16 +127,46 @@ function makeGrid(x) {
           e.target.style.background = currentColour;
           console.log(currentColour)*/
         } else if (shaderButtonPressed) {
-          /*currentColour = `rgba(0, 0, 0, ${currentOpacity})`;
-          currentOpacity = boxes.forEach((box) => {
-            Number(box.style.backgroundColor.slice(-3));
-          });
-          if (currentOpacity <= 1) {
-            currentOpacity += 0.1;
+          currentColour = "rgba(0, 0, 0, 0.0)";
+          switch (currentColour) {
+            case "rgba(0, 0, 0, 0.0)":
+              currentColour = "rgba(0, 0, 0, 0.1)";
+              break;
+            case "rgba(0, 0, 0, 0.1)":
+              currentColour = "rgba(0, 0, 0, 0.2)";
+              break;
+            case "rgba(0, 0, 0, 0.2)":
+              currentColour = "rgba(0, 0, 0, 0.3)";
+              break;
+            case "rgba(0, 0, 0, 0.3)":
+              currentColour = "rgba(0, 0, 0, 0.4)";
+              break;
+            case "rgba(0, 0, 0, 0.4)":
+              currentColour = "rgba(0, 0, 0, 0.5)";
+              break;
+            case "rgba(0, 0, 0, 0.5)":
+              currentColour = "rgba(0, 0, 0, 0.6)";
+              break;
+            case "rgba(0, 0, 0, 0.6)":
+              currentColour = "rgba(0, 0, 0, 0.7)";
+              break;
+            case "rgba(0, 0, 0, 0.7)":
+              currentColour = "rgba(0, 0, 0, 0.8)";
+              break;
+            case "rgba(0, 0, 0, 0.8)":
+              currentColour = "rgba(0, 0, 0, 0.9)";
+              break;
+            case "rgba(0, 0, 0, 0.9)":
+              currentColour = "rgba(0, 0, 0, 1)";
+              break;
+            case "rgba(0, 0, 0, 1)":
+              break;
+            default:
+              currentColour = "rgba(0, 0, 0, 0.0)";
+              break;
           }
-          e.target.style.background = currentColour;*/
+          e.target.style.background = currentColour;
           console.log(currentColour);
-          console.log(currentOpacity);
         } else {
           e.target.style.background = currentColour;
           currentColour = e.target.style.background;
@@ -147,24 +176,4 @@ function makeGrid(x) {
       box.style.zIndex = 0;
     }
   }
-}
-
-function gradient() {
-  let output = "";
-  for (let i = 0; i < colourGradient.length; i++) {
-    output = colourGradient[i];
-  }
-
-  return output;
-}
-
-function shader() {
-  if (currentColour != "#000000") {
-    currentColour = `rgba(0, 0, 0, 0)`;
-    //let currentOpacity = Number(boxes.style.backgroundColor.slice(-4, -1));
-    if (currentOpacity <= 1) {
-      currentColour = `rgba(0, 0, 0, (${currentOpacity} + 0.1))`;
-    }
-  }
-  return currentColour;
 }
