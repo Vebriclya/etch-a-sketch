@@ -127,7 +127,7 @@ function makeGrid(x) {
           e.target.style.background = currentColour;
           console.log(currentColour)*/
         } else if (shaderButtonPressed) {
-          currentColour = "rgba(0, 0, 0, 0.0)";
+          //currentColour = "rgba(0, 0, 0, 0.0)";
           switch (currentColour) {
             case "rgba(0, 0, 0, 0.0)":
               currentColour = "rgba(0, 0, 0, 0.1)";
