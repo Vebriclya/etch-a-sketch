@@ -3,10 +3,12 @@ const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
 const colourButton = document.querySelector("#colourfy");
 let colourButtonPressed = false;
-let currentOpacity = 0.1;
+const gradientButton = document.querySelector("#gradient");
+let gradientButtonPressed = false;
 const shaderButton = document.querySelector("#shade");
 let shaderButtonPressed = false;
 let currentColour = "black";
+let currentOpacity = 0.1;
 const colourArray = [
   "#171719",
   "#5b3b81",
@@ -32,6 +34,16 @@ const colourArray = [
   "#686e75",
   "#b6b6b6",
 ];
+const colourGradient = [
+  "#0d2b45",
+  "#203c56",
+  "#544e68",
+  "#8d697a",
+  "#d08159",
+  "#ffaa5e",
+  "#ffd4a3",
+  "#ffecd6",
+];
 
 makeGrid(10);
 
@@ -42,8 +54,9 @@ dropdown.addEventListener("change", () => {
 
 colourButton.addEventListener("click", () => {
   if (colourButtonPressed === false) {
-    shaderButtonPressed = false;
     colourButtonPressed = true;
+    shaderButtonPressed = false;
+    gradientButtonPressed = false;
   } else {
     colourButtonPressed = false;
     currentColour = "black";
@@ -51,12 +64,25 @@ colourButton.addEventListener("click", () => {
   console.log(colourButtonPressed);
 });
 
+gradientButton.addEventListener("click", () => {
+  if (gradientButtonPressed === false) {
+    gradientButtonPressed = true;
+    colourButtonPressed = false;
+    shaderButtonPressed = false;
+  } else {
+    gradientButtonPressed = false;
+    currentColour = black;
+  }
+});
+
 shaderButton.addEventListener("click", () => {
   if (shaderButtonPressed === false) {
-    colourButtonPressed = false;
     shaderButtonPressed = true;
+    colourButtonPressed = false;
+    gradientButtonPressed = false;
   } else {
     shaderButtonPressed = false;
+    currentColour = "black";
   }
   console.log(shaderButtonPressed);
 });
@@ -74,15 +100,19 @@ function makeGrid(x) {
           currentColour = colourArray[Math.floor(Math.random() * 23)];
           e.target.style.background = currentColour;
           console.log(currentColour);
+        } else if (gradientButtonPressed) {
+          currentColour = gradient();
+          e.target.style.background = currentColour;
+          console.log(currentColour);
         } else if (shaderButtonPressed) {
-          currentColour = `rgba(0, 0, 0, ${currentOpacity})`;
+          /*currentColour = `rgba(0, 0, 0, ${currentOpacity})`;
           currentOpacity = boxes.forEach((box) => {
             Number(box.style.backgroundColor.slice(-3));
           });
           if (currentOpacity <= 1) {
             currentOpacity += 0.1;
           }
-          e.target.style.background = currentColour;
+          e.target.style.background = currentColour;*/
           console.log(currentColour);
           console.log(currentOpacity);
         } else {
@@ -94,6 +124,15 @@ function makeGrid(x) {
       box.style.zIndex = 0;
     }
   }
+}
+
+function gradient() {
+  let output = "";
+  for (let i = 0; i < colourGradient.length; i++) {
+    output = colourGradient[i];
+  }
+
+  return output;
 }
 
 function shader() {
