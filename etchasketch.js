@@ -5,6 +5,8 @@ const colourButton = document.querySelector("#colourfy");
 let colourButtonPressed = false;
 const gradientButton = document.querySelector("#gradient");
 let gradientButtonPressed = false;
+let gradientNumber = -1;
+let loopUp = true;
 const shaderButton = document.querySelector("#shade");
 let shaderButtonPressed = false;
 let currentColour = "black";
@@ -101,9 +103,30 @@ function makeGrid(x) {
           e.target.style.background = currentColour;
           console.log(currentColour);
         } else if (gradientButtonPressed) {
-          currentColour = gradient();
+          if (gradientNumber === 0) {
+            loopUp = true;
+            gradientNumber += 1;
+            currentColour = colourGradient[gradientNumber];
+            e.target.style.background = currentColour;
+          } else if (gradientNumber < 8 && loopUp === true) {
+            gradientNumber += 1;
+            currentColour = colourGradient[gradientNumber];
+            e.target.style.background = currentColour;
+          } else if (gradientNumber <= 8 && loopUp === false) {
+            gradientNumber -= 1;
+            currentColour = colourGradient[gradientNumber];
+            e.target.style.background = currentColour;
+          } else if (gradientNumber === 8) {
+            loopUp = false;
+            gradientNumber -= 1;
+            currentColour = colourGradient[gradientNumber];
+            e.target.style.background = currentColour;
+          }
+          console.log(gradientNumber);
+          console.log(loopUp);
+          /*currentColour = gradient();
           e.target.style.background = currentColour;
-          console.log(currentColour);
+          console.log(currentColour)*/
         } else if (shaderButtonPressed) {
           /*currentColour = `rgba(0, 0, 0, ${currentOpacity})`;
           currentOpacity = boxes.forEach((box) => {
