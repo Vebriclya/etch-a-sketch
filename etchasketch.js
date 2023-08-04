@@ -140,16 +140,12 @@ function makeGrid(x) {
           }
           console.log(gradientNumber);
           console.log(loopUp);
-          /*currentColour = gradient();
-          e.target.style.background = currentColour;
-          console.log(currentColour)*/
         } else if (shaderButtonPressed) {
           const currentBackground = e.target.style.background;
-          //currentColour = "rgba(0, 0, 0, 0.0)";
           switch (currentBackground) {
-            case "rgba(0, 0, 0, 0)":
+            case "rgb(0, 0, 0)":
               console.log("1");
-              currentColour = "rgba(0, 0, 0, 0.1)";
+              currentColour = "rgb(0, 0, 0)";
               break;
             case "rgba(0, 0, 0, 0.1)":
               console.log("2");
@@ -185,11 +181,11 @@ function makeGrid(x) {
               break;
             case "rgba(0, 0, 0, 0.9)":
               console.log("10");
-              currentColour = "rgba(0, 0, 0, 1)";
+              currentColour = "rgb(0, 0, 0)";
               break;
-            case "rgba(0, 0, 0, 1)":
+            case "rgb(0, 0, 0)":
               console.log("11");
-              currentColour = "rgba(0, 0, 0, 1)";
+              currentColour = "rgb(0, 0, 0)";
               break;
             default:
               console.log("12");
