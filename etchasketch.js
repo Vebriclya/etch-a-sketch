@@ -127,46 +127,60 @@ function makeGrid(x) {
           e.target.style.background = currentColour;
           console.log(currentColour)*/
         } else if (shaderButtonPressed) {
+          const currentBackground = e.target.style.background;
           //currentColour = "rgba(0, 0, 0, 0.0)";
-          switch (currentColour) {
-            case "rgba(0, 0, 0, 0.0)":
+          switch (currentBackground) {
+            case "rgba(0, 0, 0, 0)":
+              console.log("1");
               currentColour = "rgba(0, 0, 0, 0.1)";
               break;
             case "rgba(0, 0, 0, 0.1)":
+              console.log("2");
               currentColour = "rgba(0, 0, 0, 0.2)";
               break;
             case "rgba(0, 0, 0, 0.2)":
+              console.log("3");
               currentColour = "rgba(0, 0, 0, 0.3)";
               break;
             case "rgba(0, 0, 0, 0.3)":
+              console.log("4");
               currentColour = "rgba(0, 0, 0, 0.4)";
               break;
             case "rgba(0, 0, 0, 0.4)":
+              console.log("5");
               currentColour = "rgba(0, 0, 0, 0.5)";
               break;
             case "rgba(0, 0, 0, 0.5)":
+              console.log("6");
               currentColour = "rgba(0, 0, 0, 0.6)";
               break;
             case "rgba(0, 0, 0, 0.6)":
+              console.log("7");
               currentColour = "rgba(0, 0, 0, 0.7)";
               break;
             case "rgba(0, 0, 0, 0.7)":
+              console.log("8");
               currentColour = "rgba(0, 0, 0, 0.8)";
               break;
             case "rgba(0, 0, 0, 0.8)":
+              console.log("9");
               currentColour = "rgba(0, 0, 0, 0.9)";
               break;
             case "rgba(0, 0, 0, 0.9)":
+              console.log("10");
               currentColour = "rgba(0, 0, 0, 1)";
               break;
             case "rgba(0, 0, 0, 1)":
+              console.log("11");
+              currentColour = "rgba(0, 0, 0, 1)";
               break;
             default:
-              currentColour = "rgba(0, 0, 0, 0.0)";
+              console.log("12");
+              currentColour = "rgba(0, 0, 0, 0.1)";
               break;
           }
           e.target.style.background = currentColour;
-          console.log(currentColour);
+          console.log(e.target.style.background);
         } else {
           e.target.style.background = currentColour;
           currentColour = e.target.style.background;
