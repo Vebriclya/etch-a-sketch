@@ -39,7 +39,7 @@ button{
     background-color: #4a2480;
     color: #ff8e80;
     border-radius: 12px;
-    width: 150px;
+    width: 100px;
     height: 40px;
     border: 2px solid #ff8e80;
     padding: 2px 0px;
@@ -61,7 +61,7 @@ button:hover{
     background-color: #4a2480;
     color: #ff8e80;
     border-radius: 12px;
-    width: 150px;
+    width: 100px;
     height: 40px;
     border: 2px solid #ff8e80 !important;
     padding: 2px 0px;

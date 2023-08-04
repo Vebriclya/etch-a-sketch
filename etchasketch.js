@@ -9,6 +9,8 @@ let gradientNumber = -1;
 let loopUp = true;
 const shaderButton = document.querySelector("#shade");
 let shaderButtonPressed = false;
+const eraserButton = document.querySelector("#eraser");
+let eraserButtonPressed = false;
 let currentColour = "black";
 const colourArray = [
   "#171719",
@@ -58,6 +60,7 @@ colourButton.addEventListener("click", () => {
     colourButtonPressed = true;
     shaderButtonPressed = false;
     gradientButtonPressed = false;
+    eraserButtonPressed = false;
   } else {
     colourButtonPressed = false;
     currentColour = "black";
@@ -70,6 +73,7 @@ gradientButton.addEventListener("click", () => {
     gradientButtonPressed = true;
     colourButtonPressed = false;
     shaderButtonPressed = false;
+    eraserButtonPressed = false;
   } else {
     gradientButtonPressed = false;
     currentColour = "black";
@@ -81,11 +85,24 @@ shaderButton.addEventListener("click", () => {
     shaderButtonPressed = true;
     colourButtonPressed = false;
     gradientButtonPressed = false;
+    eraserButtonPressed = false;
   } else {
     shaderButtonPressed = false;
     currentColour = "black";
   }
   console.log(shaderButtonPressed);
+});
+
+eraserButton.addEventListener("click", () => {
+  if (eraserButtonPressed === false) {
+    eraserButtonPressed = true;
+    colourButtonPressed = false;
+    gradientButtonPressed = false;
+    shaderButtonPressed = false;
+  } else {
+    eraserButtonPressed = false;
+    currentColour = "black";
+  }
 });
 
 function makeGrid(x) {
@@ -181,6 +198,9 @@ function makeGrid(x) {
           }
           e.target.style.background = currentColour;
           console.log(e.target.style.background);
+        } else if (eraserButtonPressed) {
+          currentColour = "rgba(0,0,0,0)";
+          e.target.style.background = currentColour;
         } else {
           e.target.style.background = currentColour;
           currentColour = e.target.style.background;
