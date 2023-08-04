@@ -3,17 +3,34 @@ const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
 const colourButton = document.querySelector("#colourfy");
 let colourButtonPressed = false;
+let currentOpacity = 0.1;
 const shaderButton = document.querySelector("#shade");
-let currentColour = "pink";
+let shaderButtonPressed = false;
+let currentColour = "black";
 const colourArray = [
-  "#0d2b45",
-  "#203c56",
-  "#544e68",
-  "#8d697a",
-  "#d08159",
-  "#ffaa5e",
-  "#ffd4a3",
-  "#ffecd6",
+  "#171719",
+  "#5b3b81",
+  "#8f8aba",
+  "#bc5ddd",
+  "#ff5fce",
+  "#ffc6dc",
+  "#8d4450",
+  "#e37651",
+  "#ffc5ad",
+  "#a6272e",
+  "#df425d",
+  "#ff9b53",
+  "#ffed00",
+  "#ace11a",
+  "#40aa6d",
+  "#426939",
+  "#2136ae",
+  "#1e7ace",
+  "#22d5cf",
+  "#59ffd8",
+  "#42464a",
+  "#686e75",
+  "#b6b6b6",
 ];
 
 makeGrid(10);
@@ -25,18 +42,23 @@ dropdown.addEventListener("change", () => {
 
 colourButton.addEventListener("click", () => {
   if (colourButtonPressed === false) {
+    shaderButtonPressed = false;
     colourButtonPressed = true;
   } else {
     colourButtonPressed = false;
+    currentColour = "black";
   }
   console.log(colourButtonPressed);
+});
 
-  if (colourButtonPressed) {
-    boxes.forEach((box) => {
-      console.log("enteredBox");
-    });
-    //let currentColour = colourArray(Math.floor(Math.random() * 8));
+shaderButton.addEventListener("click", () => {
+  if (shaderButtonPressed === false) {
+    colourButtonPressed = false;
+    shaderButtonPressed = true;
+  } else {
+    shaderButtonPressed = false;
   }
+  console.log(shaderButtonPressed);
 });
 
 function makeGrid(x) {
@@ -49,9 +71,20 @@ function makeGrid(x) {
       container.appendChild(box);
       box.addEventListener("mouseenter", function (e) {
         if (colourButtonPressed) {
-          currentColour = colourArray[Math.floor(Math.random() * 8)];
+          currentColour = colourArray[Math.floor(Math.random() * 23)];
           e.target.style.background = currentColour;
           console.log(currentColour);
+        } else if (shaderButtonPressed) {
+          currentColour = `rgba(0, 0, 0, ${currentOpacity})`;
+          currentOpacity = boxes.forEach((box) => {
+            Number(box.style.backgroundColor.slice(-3));
+          });
+          if (currentOpacity <= 1) {
+            currentOpacity += 0.1;
+          }
+          e.target.style.background = currentColour;
+          console.log(currentColour);
+          console.log(currentOpacity);
         } else {
           e.target.style.background = currentColour;
           currentColour = e.target.style.background;
@@ -63,36 +96,13 @@ function makeGrid(x) {
   }
 }
 
-/*
-function colourPicker() {
-  let colour = "";
-  for(i = 0; i < 8; i++){
-    switch(i){
-      case 0:
-        colour = colourArray[0];
-        break;
-      case 1:
-        colour = colourArray[1];
-        break;
-      case 2:
-        colour = colourArray[2];
-        break;
-      case 3:
-        colour = colourArray[3];
-        break;
-      case 4:
-        colour = colourArray[4];
-        break;
-      case 5:
-        colour = colourArray[5];
-        break;
-      case 6:
-        colour = colourArray[6];
-        break;
-      case 7:
-        colour = colourArray[7];
-        break;
+function shader() {
+  if (currentColour != "#000000") {
+    currentColour = `rgba(0, 0, 0, 0)`;
+    //let currentOpacity = Number(boxes.style.backgroundColor.slice(-4, -1));
+    if (currentOpacity <= 1) {
+      currentColour = `rgba(0, 0, 0, (${currentOpacity} + 0.1))`;
     }
-    return colour;
+  }
+  return currentColour;
 }
-*/
