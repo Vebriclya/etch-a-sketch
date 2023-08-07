@@ -1,3 +1,7 @@
+const DEFAULT_COLOUR = "black";
+let gridSize = 10;
+//const DEFAULT_MODE = monoColour;
+
 const container = document.querySelector("#container");
 const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
@@ -50,32 +54,23 @@ const colourGradient = [
   "#ffecd6",
 ];
 
-makeGrid(10);
+makeGrid(gridSize);
 
 dropdown.addEventListener("change", () => {
   container.innerHTML = "";
+  gridSize = dropdown.value;
   makeGrid(dropdown.value);
 });
 
 startOverButton.addEventListener("click", () => {
-  if (startOverButtonPressed === false) {
-    startOverButtonPressed = true;
-  } else {
-    startOverButtonPressed = false;
-  }
-  console.log(startOverButtonPressed);
+  container.innerHTML = "";
+  makeGrid(gridSize);
 });
 
 colourButton.addEventListener("click", () => {
-  if (colourButtonPressed === false) {
-    colourButtonPressed = true;
-    shaderButtonPressed = false;
-    gradientButtonPressed = false;
-    eraserButtonPressed = false;
-  } else {
-    colourButtonPressed = false;
-    currentColour = "black";
-  }
+  currentColour = colourArray[Math.floor(Math.random() * 23)];
+  boxes.style.background = currentColour;
+  console.log(currentColour);
   console.log(colourButtonPressed);
 });
 
@@ -124,21 +119,27 @@ function makeGrid(x) {
       const box = document.createElement("div");
       box.classList.add("sketch-divs");
       container.appendChild(box);
-      box.addEventListener("mouseenter", function (e) {
+      box.style.zIndex = 0;
+    }
+  }
+  console.log(`Grid initialised at ${gridSize}x${gridSize}`);
+}
+
+/*box.addEventListener("mouseenter", function (e) {
         if (colourButtonPressed) {
           currentColour = colourArray[Math.floor(Math.random() * 23)];
           e.target.style.background = currentColour;
           console.log(currentColour);
-        } else if (startOverButtonPressed) {
-          container.innerHTML = "";
-          for (let columns = 0; columns < x; columns++) {
-            for (let rows = 0; rows < x; rows++) {
-              const box = document.createElement("div");
-              box.classList.add("sketch-divs");
-              container.appendChild(box);
-            }
-          }
-        } else if (gradientButtonPressed) {
+        } //else if (startOverButtonPressed) {
+          //container.innerHTML = "";
+          //for (let columns = 0; columns < x; columns++) {
+          //  for (let rows = 0; rows < x; rows++) {
+          //    const box = document.createElement("div");
+          //    box.classList.add("sketch-divs");
+          //    container.appendChild(box);
+          //  }
+          // }} 
+          else if (gradientButtonPressed) {
           if (gradientNumber === 0) {
             loopUp = true;
             gradientNumber += 1;
@@ -223,7 +224,5 @@ function makeGrid(x) {
           console.log(currentColour);
         }
       });
-      box.style.zIndex = 0;
-    }
-  }
-}
+
+      */
