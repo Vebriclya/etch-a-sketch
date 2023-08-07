@@ -11,6 +11,8 @@ const shaderButton = document.querySelector("#shade");
 let shaderButtonPressed = false;
 const eraserButton = document.querySelector("#eraser");
 let eraserButtonPressed = false;
+const startOverButton = document.querySelector("#wipe-board");
+let startOverButtonPressed = false;
 let currentColour = "black";
 const colourArray = [
   "#171719",
@@ -53,6 +55,15 @@ makeGrid(10);
 dropdown.addEventListener("change", () => {
   container.innerHTML = "";
   makeGrid(dropdown.value);
+});
+
+startOverButton.addEventListener("click", () => {
+  if (startOverButtonPressed === false) {
+    startOverButtonPressed = true;
+  } else {
+    startOverButtonPressed = false;
+  }
+  console.log(startOverButtonPressed);
 });
 
 colourButton.addEventListener("click", () => {
@@ -118,6 +129,15 @@ function makeGrid(x) {
           currentColour = colourArray[Math.floor(Math.random() * 23)];
           e.target.style.background = currentColour;
           console.log(currentColour);
+        } else if (startOverButtonPressed) {
+          container.innerHTML = "";
+          for (let columns = 0; columns < x; columns++) {
+            for (let rows = 0; rows < x; rows++) {
+              const box = document.createElement("div");
+              box.classList.add("sketch-divs");
+              container.appendChild(box);
+            }
+          }
         } else if (gradientButtonPressed) {
           if (gradientNumber === 0) {
             loopUp = true;

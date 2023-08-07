@@ -8,19 +8,22 @@
     <script src="etchasketch.js" defer></script>
   </head>
   <body>
-    <div id="container"></div>
-    <div id ="button-div">
-      <select name="sizeDropdown" id="sizeDropdown">
-        <option value="10">10x10</option>
-        <option value="25">25x25</option>
-        <option value="50">50x50</option>
-        <option value="75">75x75</option>
-        <option value="100">100x100</option>
-      </select>
-      <button id="colourfy">Colourfy!</button>
-      <button id="gradient">Gradient</button>
-      <button id="shade">Shade</button>
-      <button id="eraser">Eraser</button>
+    <div id="buttons-and-screen">
+      <div id="button-container">
+        <select name="sizeDropdown" id="sizeDropdown">
+          <option value="10">10x10</option>
+          <option value="25">25x25</option>
+          <option value="50">50x50</option>
+          <option value="75">75x75</option>
+          <option value="100">100x100</option>
+        </select>
+        <button id="wipe-board">Start Over</button>
+        <button id="colourfy">Colourfy!</button>
+        <button id="gradient">Gradient</button>
+        <button id="shade">Shade</button>
+        <button id="eraser">Eraser</button>
+      </div>
+      <div id="container"></div>
     </div>
   </body>
 </html>

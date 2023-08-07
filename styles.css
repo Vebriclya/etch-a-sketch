@@ -9,6 +9,11 @@ body{
     justify-content: center;
 }
 
+#buttons-and-screen{
+    display: flex;
+    flex-direction: row;
+}
+
 #container{
     display: grid;
     width: 700px;
@@ -23,10 +28,11 @@ body{
     box-sizing: border-box;   
 }
 
-#button-div{
-    flex-wrap: wrap;
-    width: 700px;
-    height: 80px;
+#button-container{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 700px;
     display: flex;
     gap: 15px;
     justify-content: space-evenly;
@@ -39,7 +45,7 @@ button{
     background-color: #4a2480;
     color: #ff8e80;
     border-radius: 12px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     border: 2px solid #ff8e80;
     padding: 2px 0px;
@@ -61,7 +67,7 @@ button:hover{
     background-color: #4a2480;
     color: #ff8e80;
     border-radius: 12px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     border: 2px solid #ff8e80 !important;
     padding: 2px 0px;
