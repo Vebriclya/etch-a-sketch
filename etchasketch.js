@@ -3,6 +3,7 @@ let currentMode = "default";
 
 const container = document.querySelector("#container");
 const colourPicker = document.querySelector("#colour-picker");
+let colourPickerPressed = document.querySelector("#colour-picker");
 const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
 const colourButton = document.querySelector("#colourfy");
@@ -61,6 +62,16 @@ makeGrid(gridSize);
 colourPicker.addEventListener("input", (e) => {
   setCurrentColour(e.target.value);
   console.log(currentColour);
+});
+
+colourPicker.addEventListener("click", () => {
+  colourPickerPressed = !colourPickerPressed;
+  if (colourPickerPressed) {
+    currentMode = "colourMode";
+  } else {
+    currentMode = "default";
+  }
+  console.log(colourPickerPressed);
 });
 //colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 
@@ -135,6 +146,9 @@ function changeMode(e) {
     currentColour = currentColour;
     e.target.style.backgroundColor = currentColour;
     console.log(currentColour);
+  } else if (currentMode === "colourMode") {
+    currentColour = currentColour;
+    e.target.style.backgroundColor = currentColour;
   } else if (currentMode === "rainbow") {
     currentColour = colourArray[Math.floor(Math.random() * colourArray.length)];
     e.target.style.backgroundColor = currentColour;
