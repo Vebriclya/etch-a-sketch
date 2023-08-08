@@ -1,6 +1,6 @@
 const DEFAULT_COLOUR = "black";
 let gridSize = 10;
-//const DEFAULT_MODE = monoColour;
+let currentMode = "default";
 
 const container = document.querySelector("#container");
 const dropdown = document.querySelector("#sizeDropdown");
@@ -62,17 +62,43 @@ dropdown.addEventListener("change", () => {
   makeGrid(dropdown.value);
 });
 
+function makeGrid(x) {
+  container.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${x}, 1fr)`;
+  for (let columns = 0; columns < x; columns++) {
+    for (let rows = 0; rows < x; rows++) {
+      const box = document.createElement("div");
+      box.classList.add("sketch-divs");
+      box.addEventListener("mouseover", changeMode); // this is your new bit
+      container.appendChild(box);
+      box.style.zIndex = 0;
+    }
+  }
+  console.log(`Grid initialised at ${gridSize}x${gridSize}`);
+}
+
 startOverButton.addEventListener("click", () => {
   container.innerHTML = "";
   makeGrid(gridSize);
 });
 
 colourButton.addEventListener("click", () => {
-  currentColour = colourArray[Math.floor(Math.random() * 23)];
-  boxes.style.background = currentColour;
-  console.log(currentColour);
+  colourButtonPressed = !colourButtonPressed;
+  if (colourButtonPressed) {
+    currentMode = "rainbow";
+  } else {
+    currentMode = "default";
+  }
   console.log(colourButtonPressed);
 });
+
+function changeMode(e) {
+  if (currentMode === "rainbow") {
+    currentColour = colourArray[Math.floor(Math.random() * colourArray.length)];
+    e.target.style.backgroundColor = currentColour;
+    console.log(currentColour);
+  }
+}
 
 gradientButton.addEventListener("click", () => {
   if (gradientButtonPressed === false) {
@@ -110,20 +136,6 @@ eraserButton.addEventListener("click", () => {
     currentColour = "black";
   }
 });
-
-function makeGrid(x) {
-  container.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
-  container.style.gridTemplateRows = `repeat(${x}, 1fr)`;
-  for (let columns = 0; columns < x; columns++) {
-    for (let rows = 0; rows < x; rows++) {
-      const box = document.createElement("div");
-      box.classList.add("sketch-divs");
-      container.appendChild(box);
-      box.style.zIndex = 0;
-    }
-  }
-  console.log(`Grid initialised at ${gridSize}x${gridSize}`);
-}
 
 /*box.addEventListener("mouseenter", function (e) {
         if (colourButtonPressed) {
