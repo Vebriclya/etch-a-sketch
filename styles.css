@@ -45,25 +45,23 @@ body{
     align-items: center;
 }
 
-#colour-picker{
-    -webkit-appearance: none;
-    -moz-appearance: none;
+input[type='color']{
+    webkit-appearance: none;
     width: 100px;
     height: 100px;
-    background-color: transparent;
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
-#colour-picker::-webkit-color-swatch{
-    border-radius: 12px;
-    border: 2px solid #ff8e80;
-}
-
-#colour-picker::-webkit-color-swatch{
-    border-radius: 12px;
-    border: 2px solid #ff8e80;
-}
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+  }
 
 button{
     display: flex;

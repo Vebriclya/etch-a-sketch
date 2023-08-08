@@ -2,6 +2,7 @@ let gridSize = 10;
 let currentMode = "default";
 
 const container = document.querySelector("#container");
+const colourPicker = document.querySelector("#colour-picker");
 const dropdown = document.querySelector("#sizeDropdown");
 const boxes = document.querySelectorAll(".sketch-divs");
 const colourButton = document.querySelector("#colourfy");
@@ -57,6 +58,12 @@ const colourGradient = [
 makeGrid(gridSize);
 
 /* EVENT LISTENERS */
+colourPicker.addEventListener("input", (e) => {
+  setCurrentColour(e.target.value);
+  console.log(currentColour);
+});
+//colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+
 dropdown.addEventListener("change", () => {
   container.innerHTML = "";
   gridSize = dropdown.value;
@@ -125,7 +132,7 @@ function makeGrid(x) {
 
 function changeMode(e) {
   if (currentMode === "default") {
-    currentColour = "black";
+    currentColour = currentColour;
     e.target.style.backgroundColor = currentColour;
     console.log(currentColour);
   } else if (currentMode === "rainbow") {
@@ -212,4 +219,8 @@ function changeMode(e) {
     currentColour = "rgba(0,0,0,0)";
     e.target.style.background = currentColour;
   }
+}
+
+function setCurrentColour(selectedColour) {
+  currentColour = selectedColour;
 }
