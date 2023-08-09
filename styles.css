@@ -6,14 +6,21 @@
     box-sizing: border-box;
 }
 
+#container{
+ background: antiquewhite;
+}
+
 body{
     font-family: 'Roboto', 'sans-serif';
     margin: 2rem;
     display: flex;
     flex-direction: column;
-    padding: 0;
     justify-content: center;
     align-items:center;
+    margin: 0;
+    padding: 0;
+    background-color: #f39344;
+    color: #32151b;
 }
 
 #game-and-title{
@@ -30,19 +37,24 @@ body{
 #buttons-and-screen{
     display: flex;
     flex-direction: row;
+    background-color: #d95926;
+    border: 20px;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 10px 10px 10px 20px #592b26;
 }
 
 #container{
     display: grid;
     width: 700px;
     height: 700px;
-    border: 5px solid rgb(34, 34, 34);
-    border-radius: 12px;
+    border: 5px solid #32151b;
     z-index: 1;
 }
 
 .sketch-divs{
     border: 1px solid rgba(0, 0, 0, 0.050);
+    background-color: antiquewhite;
     box-sizing: border-box;   
 }
 
@@ -76,15 +88,20 @@ input[type='color']::-webkit-color-swatch-wrapper {
     border-radius: 50px;
   }
 
+  input[type='color']:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #f39344);
+  }
+
 button{
     display: flex;
     box-sizing: border-box;
-    background-color: #4a2480;
-    color: #ff8e80;
+    background-color: #592b26;
+    color: #f39344;
     border-radius: 12px;
     width: 120px;
     height: 40px;
-    border: 2px solid #ff8e80;
+    border: 2px solid #9f2d23;
     padding: 2px 0px;
     display: flex;
     align-items: center;
@@ -93,20 +110,19 @@ button{
 
 button:hover{
     cursor: grab;
-    background-color: #ff8e80;
-    border: 2px solid #4a2480;
-    color: #4a2480;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #f39344);
 }
 
 #sizeDropdown{
     display: flex;
     box-sizing: border-box;
-    background-color: #4a2480;
-    color: #ff8e80;
+    background-color: #592b26;
+    color: #f39344;
     border-radius: 12px;
     width: 120px;
     height: 40px;
-    border: 2px solid #ff8e80 !important;
+    border: 2px solid #9f2d23 !important;
     padding: 2px 0px;
     display: flex;
     align-items: center;
@@ -115,9 +131,11 @@ button:hover{
 
 #sizeDropdown:focus{
     outline: none;
-    border: 2px solid #ff8e80;
+    border: 2px solid #9f2d23;
 }
 
 #sizeDropdown:hover{
     cursor: grab;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #f39344);
 }

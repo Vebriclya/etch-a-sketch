@@ -133,7 +133,7 @@ function makeGrid(x) {
     for (let rows = 0; rows < x; rows++) {
       const box = document.createElement("div");
       box.classList.add("sketch-divs");
-      box.addEventListener("mouseover", changeMode); // this is your new bit
+      box.addEventListener("mouseover", changeMode);
       container.appendChild(box);
       box.style.zIndex = 0;
     }
@@ -230,7 +230,7 @@ function changeMode(e) {
     e.target.style.background = currentColour;
     console.log(e.target.style.background);
   } else if (currentMode === "eraser") {
-    currentColour = "rgba(0,0,0,0)";
+    currentColour = "#FAEBD7";
     e.target.style.background = currentColour;
   }
 }
